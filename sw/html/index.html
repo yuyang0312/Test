@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=le, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    Hello GitHub
-</body>
+    <title>Hello Caching World!</title>
+  </head>
+  <body>
+    <!-- Image -->
+    <img src="../images/hello.png" />                   
+    <!-- JavaScript -->
+    <script async src="../js/script.js"></script>       
+    <script>
+      // 注册 service worker
+      if ('serviceWorker' in navigator) {             
+        navigator.serviceWorker.register('../js/service-worker.js').then(function (registration) {
+          // 注册成功
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function (err) {                     
+          // 注册失败 :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      }
+    </script>
+  </body>
 </html>
