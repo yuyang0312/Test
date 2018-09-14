@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input1"><br/>
+    <input type="text" id="input2"><br/>
+    <input type="text" id="input3"><br/>
+    <input type="text" id="input4"><br/>
+    <button  onclick="calculate()">计算</button>
+    <div style="color:red" id="result"></div>
+    <script>
+        function calculate(){
+                document.getElementById("result").innerHTML="";
+                var a=document.getElementById("input1").value;
+                var b=document.getElementById("input2").value;
+                var c=document.getElementById("input3").value;
+                var d=document.getElementById("input4").value;
+
+                var num=[a,b,c,d];
+                var sx=[[0,1,2,3],[0,1,3,2],[0,2,1,3],[0,2,3,1],[0,3,1,2],[0,3,2,1],[1,0,2,3],[1,0,3,2],[1,2,0,3],[1,2,3,0],[1,3,0,2],[1,3,2,0],[2,0,1,3],[2,0,3,1],[2,1,0,3],[2,1,3,0],[2,3,0,1],[2,3,1,0],[3,0,1,2],[3,0,2,1],[3,1,0,2],[3,1,2,0],[3,2,0,1],[3,2,1,0]];
+                var operator=["+","-","*","/"];
+                var operatorarr=[];
+                for(var i=0;i<4;i++){
+
+                    for(var j=0;j<4;j++){
+                    
+                        for(var k=0;k<4;k++){
+                           
+                            operatorarr.push([i,k,j]);
+                        }
+
+                }
+
+                }
+                var sss="";
+                for(var i=0;i<sx.length;i++){
+                   
+                    for(var j=0;j<operatorarr.length;j++){
+                        var str=num[sx[i][0]]+operator[operatorarr[j][0]]+num[sx[i][1]]+operator[operatorarr[j][1]]+num[sx[i][2]]+operator[operatorarr[j][2]]+num[sx[i][3]];
+                        var result=eval(str);
+                        // console.log(result);
+                        if(result==24){
+                            // console.log(str); 
+                            document.getElementById("result").innerHTML=document.getElementById("result").innerHTML+"<br/>"+str;
+                        }
+
+                    }
+
+                }
+
+
+        }
+    </script>
+</body>
+</html>
